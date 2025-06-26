@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Use Inline Pipeline Variables
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:  # Inline pipeline variables
+      APP_NAME: myapp
+      VERSION: 1.2.3
+      BUILD_TYPE: release
+
+    steps:
+    - name: Show Inline Pipeline Variables
+      run: |
+        echo "App: $APP_NAME"
+        echo "Version: $VERSION"
+        echo "Build Type: $BUILD_TYPE"
